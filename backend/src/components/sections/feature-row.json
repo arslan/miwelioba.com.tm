@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_feature_rows",
+  "info": {
+    "displayName": "Feature row",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "features": {
+      "type": "component",
+      "required": true,
+      "component": "elements.feature"
+    },
+    "exclamationText": {
+      "type": "text"
+    },
+    "featureButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.button-link"
+    }
+  }
+}

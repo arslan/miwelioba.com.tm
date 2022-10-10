@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_layout_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "link.button"
+    },
+    "languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.language"
+    }
+  }
+}

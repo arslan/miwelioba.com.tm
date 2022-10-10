@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_sections_contact_forms",
+  "info": {
+    "displayName": "Contact form",
+    "icon": "envelope-open-text"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "firstNameTitle": {
+      "type": "string",
+      "required": true
+    },
+    "firstNamePlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "lastNameTitle": {
+      "type": "string",
+      "required": true
+    },
+    "lastNamePlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "addressTitle": {
+      "type": "string",
+      "required": true
+    },
+    "addressPlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumberTitle": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumberPlaceholder": {
+      "type": "string"
+    },
+    "messageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "messagePlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "submitButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.button",
+      "required": true
+    }
+  }
+}

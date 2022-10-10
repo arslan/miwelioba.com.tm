@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_elements_products",
+  "info": {
+    "displayName": "Product",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "descriptionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "propertiesTitle": {
+      "type": "string",
+      "required": true
+    },
+    "properties": {
+      "displayName": "Product property",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.product-property"
+    },
+    "brand": {
+      "type": "string",
+      "required": true
+    },
+    "thumbnailPicture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

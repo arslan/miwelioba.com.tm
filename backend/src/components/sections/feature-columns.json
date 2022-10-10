@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_feature_columns",
+  "info": {
+    "displayName": "Feature columns",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "component": "elements.feature"
+    }
+  }
+}

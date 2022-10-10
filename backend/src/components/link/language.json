@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_link_languages",
+  "info": {
+    "displayName": "Language",
+    "icon": "language"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "langCode": {
+      "type": "string",
+      "required": true
+    },
+    "flag": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

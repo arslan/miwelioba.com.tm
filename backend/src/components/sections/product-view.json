@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_product_views",
+  "info": {
+    "displayName": "Product view",
+    "icon": "arrows-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "product": {
+      "type": "component",
+      "component": "elements.product"
+    }
+  }
+}

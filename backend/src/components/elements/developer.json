@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_developers",
+  "info": {
+    "displayName": "Developer",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
