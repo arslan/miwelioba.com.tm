@@ -1,18 +1,54 @@
-import ErrorPage from 'next/error'
+import App from 'next/app';
+import Head from 'next/head';
+import ErrorPage from 'next/error';
+import { DefaultSeo } from 'next-seo';
 
+import { AnimatePresence } from 'framer-motion';
+
+import { getStrapiMedia } from '../utils/media';
 import '../styles/globals.css';
+import { getGlobalData } from '../utils/api';
 
 function MyApp({ Component, pageProps }) {
   // Get the data we need on all pages
   const { global } = pageProps;
-  console.log(pageProps)
   if (global == null) {
-    return <ErrorPage statusCode={404} />
+    return <ErrorPage statusCode={404} />;
   }
+  const { metadata, favicon, metaTitleSuffix } = global.attributes;
 
-  const { metadata, favicon, metaTitleSuffix } = global.attributes
-
-  return <Component {...pageProps} />;
+  return (
+    <>
+      {/* Favicon */}
+      <Head>
+        <link rel="icon" href={getStrapiMedia(favicon.data.attributes.url)} />
+      </Head>
+      {/* Global site metadata */}
+      <DefaultSeo
+        titleTemplate={`%s | ${metaTitleSuffix}`}
+        title={metadata.metaTitle}
+        description={metadata.metaDescription}
+      />
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+// getInitialProps disables automatic static optimization for pages that don't
+// have getStaticProps. So [[...slug]] pages still get SSG.
+// Hopefully we can replace this with getStaticProps once this issue is fixed:
+// https://github.com/vercel/next.js/discussions/10949
+MyApp.getInitialProps = async (appContext) => {
+  // Calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+  const globalLocale = await getGlobalData(appContext.router.locale);
+
+  return {
+    ...appProps,
+    pageProps: {
+      global: globalLocale,
+    },
+  };
+};
 
 export default MyApp;

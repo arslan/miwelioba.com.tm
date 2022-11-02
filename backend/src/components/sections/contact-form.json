@@ -2,13 +2,17 @@
   "collectionName": "components_sections_contact_forms",
   "info": {
     "displayName": "Contact form",
-    "icon": "envelope-open-text"
+    "icon": "envelope-open-text",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
       "required": true
+    },
+    "anchor": {
+      "type": "string"
     },
     "firstNameTitle": {
       "type": "string",
@@ -51,9 +55,22 @@
     },
     "submitButton": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "link.button",
       "required": true
+    },
+    "emailTitle": {
+      "type": "string",
+      "required": true
+    },
+    "emailPlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.decoration-images"
     }
   }
 }

@@ -11,6 +11,9 @@
       "type": "string",
       "required": true
     },
+    "anchor": {
+      "type": "string"
+    },
     "subtitle": {
       "type": "string"
     },
@@ -22,10 +25,15 @@
       "enum": ["carousel", "grid", "list"],
       "required": true
     },
-    "products": {
+    "brands": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product"
+      "target": "api::brand.brand"
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.decoration-images"
     }
   }
 }

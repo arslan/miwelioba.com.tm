@@ -15,6 +15,11 @@
     "ctaButton": {
       "type": "component",
       "component": "link.button-link"
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.decoration-images"
     }
   }
 }

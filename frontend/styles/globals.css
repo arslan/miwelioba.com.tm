@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-orange;
+}
+
+h2 {
+  @apply text-4xl font-bold;
+}
+
+h3 {
+  @apply font-semibold;
+}
+
+p {
+  @apply leading-relaxed;
+}
+
+.arrow-link {
+  @apply font-semibold tracking-wide underline text-yellow;
+}
+
+.button {
+  @apply block w-full lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm rounded-full px-8 py-4 bg-white text-orange;
+}
+
+input,
+textarea {
+  @apply text-white bg-orange placeholder:text-white/30 border-b-[1px] font-light focus:outline-none invalid:text-red-900 invalid:border-red-800 transition duration-300;
+}
+
+label {
+  @apply grow;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.flip img {
+  @apply -scale-x-100;
+}

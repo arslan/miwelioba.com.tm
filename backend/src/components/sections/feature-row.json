@@ -14,10 +14,18 @@
     "exclamationText": {
       "type": "text"
     },
+    "anchor": {
+      "type": "string"
+    },
     "featureButton": {
       "type": "component",
       "repeatable": true,
       "component": "link.button-link"
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.decoration-images"
     }
   }
 }

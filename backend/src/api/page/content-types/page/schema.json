@@ -32,7 +32,7 @@
         }
       },
       "type": "string",
-      "required": false
+      "regex": "^$|^[a-zA-Z/-]+$"
     },
     "contentSections": {
       "pluginOptions": {
@@ -46,10 +46,30 @@
         "sections.product-groups",
         "sections.contact-form",
         "sections.cta",
-        "sections.product-view",
         "sections.feature-columns",
         "sections.feature-row"
       ]
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "meta.metadata"
+    },
+    "type": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "elements.page-type",
+      "required": true
     }
   }
 }

@@ -11,7 +11,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "columns": {
       "type": "component",
@@ -29,6 +31,10 @@
     "developer": {
       "type": "component",
       "component": "elements.developer",
+      "required": true
+    },
+    "copyrightCompany": {
+      "type": "string",
       "required": true
     }
   }

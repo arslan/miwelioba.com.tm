@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_decoration_images",
+  "info": {
+    "displayName": "Decoration images",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "decorationImages": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

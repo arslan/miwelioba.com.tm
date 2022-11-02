@@ -20,15 +20,15 @@
       "repeatable": true,
       "component": "link.link"
     },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "link.button"
-    },
     "languages": {
       "type": "component",
       "repeatable": true,
       "component": "link.language"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.button-link"
     }
   }
 }

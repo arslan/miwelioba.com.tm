@@ -38,16 +38,16 @@
       "repeatable": true,
       "component": "elements.product-property"
     },
-    "brand": {
-      "type": "string",
-      "required": true
-    },
     "thumbnailPicture": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "string",
       "required": true
     }
   }

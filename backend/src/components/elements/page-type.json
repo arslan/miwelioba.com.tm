@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_page_types",
+  "info": {
+    "displayName": "pageType",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "primaryPage",
+        "productPage"
+      ],
+      "required": true
+    }
+  }
+}

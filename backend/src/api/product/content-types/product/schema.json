@@ -4,10 +4,11 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -15,15 +16,77 @@
     }
   },
   "attributes": {
-    "products": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "videos"]
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "propertiesTitle": {
+      "type": "string",
+      "required": true
+    },
+    "properties": {
+      "displayName": "Product property",
       "type": "component",
       "repeatable": true,
+      "component": "elements.product-property"
+    },
+    "thumbnailPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "elements.product"
+      "component": "link.button-link"
+    },
+    "type": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "elements.page-type",
+      "required": true
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "meta.metadata",
+      "required": true
     }
   }
 }

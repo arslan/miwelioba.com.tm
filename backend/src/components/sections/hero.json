@@ -2,13 +2,14 @@
   "collectionName": "components_sections_heroes",
   "info": {
     "displayName": "Hero",
-    "icon": "braille"
+    "icon": "braille",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "label": {
       "type": "string"
@@ -17,12 +18,13 @@
       "type": "string"
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "smallTextWithLink": {
       "type": "richtext"
@@ -31,6 +33,11 @@
       "type": "component",
       "repeatable": true,
       "component": "link.button-link"
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.decoration-images"
     }
   }
 }
