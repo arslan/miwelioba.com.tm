@@ -39,9 +39,8 @@ const DynamicPage = ({ global, metadata, pageContext, sections }) => {
 
   return (
     <Layout global={global} pageContext={pageContext}>
-    {console.log(global.attributes.decor)}
       <Seo metadata={metadataWithDefaults} />
-      <AnimatePresence mode="wait" >
+      <AnimatePresence mode="wait">
         <motion.div
           variants={variants} // Pass the variant object into Framer Motion
           initial="hidden" // Set the initial state to variants.hidden
@@ -49,7 +48,9 @@ const DynamicPage = ({ global, metadata, pageContext, sections }) => {
           exit="exit" // Exit state (used later) to variants.exit
           key={router.asPath}
           transition={{ type: 'linear' }}
-          onAnimationComplete={() => window.scrollTo(0, 0)}
+          onAnimationComplete={() => {
+            if (!router.asPath.includes('#')) window.scrollTo(0, 0);
+          }}
         >
           <Sections sections={sections} />{' '}
         </motion.div>
@@ -125,7 +126,13 @@ export async function getStaticProps(context) {
   const productThumbnails = await getProductThumbnails();
 
   const productPageData =
-    pageData == null ? { ...productData.attributes, ...globalLocale.attributes.decor, productThumbnails } : {};
+    pageData == null
+      ? {
+          ...productData.attributes,
+          ...globalLocale.attributes.decor,
+          productThumbnails,
+        }
+      : {};
 
   const pageContext = {
     locale,

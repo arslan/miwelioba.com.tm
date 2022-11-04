@@ -6,6 +6,9 @@ const nextConfig = {
     locales: ['en', 'ru', 'tk'],
     defaultLocale: 'en',
   },
+  images: {
+    domains: [process.env.IMAGE_DOMAIN]
+  },
 };
 
 module.exports = nextConfig;

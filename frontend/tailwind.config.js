@@ -31,7 +31,7 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: '8rem',
+        padding: { DEFAULT: '2rem', sm: '4rem', md: '6rem', lg: '8rem' },
       },
       borderRadius: {
         large: '2rem',

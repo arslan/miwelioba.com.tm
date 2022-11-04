@@ -9,7 +9,7 @@ function CallToAction({ data }) {
   const { ctaFeatures, ctaButton, decor } = data;
 
   return (
-    <div className="container relative px-64 pt-40 pb-20 text-white">
+    <div className="container relative pt-40 pb-20 text-white lg:px-64">
       {/* DECORATION IMAGES */}
       {decor.decorationImages.data?.length === 4 ? (
         <div>
@@ -17,25 +17,25 @@ function CallToAction({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
             speed={1}
-            className="absolute z-10 w-64 left-30 -top-32"
+            className="absolute z-10 w-64 -left-24 lg:left-30 -top-32"
           />
           {/* PEACHES */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[1] } }}
             speed={-2}
-            className="absolute left-0 w-56 -bottom-64"
+            className="absolute w-56 -z-10 -left-16 lg:left-0 -bottom-80 lg:-bottom-64"
           />
           {/* TOMATO */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[2] } }}
             speed={-1}
-            className="absolute z-10 w-56 right-20 -bottom-64"
+            className="absolute w-56 -right-20 -z-10 lg:z-10 lg:right-20 blur-sm lg:blur-none -bottom-64"
           />
           {/* CHERRIES */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[3] } }}
             speed={1}
-            className="absolute right-0 z-10 w-64 -top-32"
+            className="absolute z-10 w-64 -right-12 lg:right-0 -top-24 lg:-top-32"
           />
         </div>
       ) : (
@@ -43,10 +43,10 @@ function CallToAction({ data }) {
       )}
       {ctaFeatures.map(({ title, description, link, media }) => (
         <div
-          className="relative flex flex-row shadow-2xl bg-orange drop-shadow-xl rounded-large"
+          className="relative flex flex-col shadow-2xl lg:flex-row bg-orange drop-shadow-xl rounded-large"
           key={title}
         >
-          <div className="flex flex-col w-3/5 gap-4 p-8">
+          <div className="flex flex-col gap-4 p-8 lg:w-3/5">
             <h2>{title}</h2>
             <p>{description}</p>
             <Link href={link.url}>
@@ -61,7 +61,7 @@ function CallToAction({ data }) {
               compact={false}
             />
           </div>
-          <div className="absolute w-[26rem] -right-10 -top-24">
+          <div className="block lg:absolute lg:w-[26rem] -right-10 -top-24">
             <NextImage media={media} />
           </div>
         </div>

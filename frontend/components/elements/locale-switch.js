@@ -1,11 +1,10 @@
 import { useEffect, useState, useRef, Fragment } from 'react';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { LanguageIcon } from '@heroicons/react/24/solid';
-import { Menu } from '@headlessui/react';
+import { Menu, Transition } from '@headlessui/react';
 import { localizePath } from 'utils/localize';
 
 import { getLocalizedPage } from 'utils/localize';
@@ -22,7 +21,11 @@ function LocaleSwitch({ pageContext }) {
       ru: 'Русский',
       tk: 'Türkmençe',
     };
-
+    const variants = {
+      hidden: { opacity: 0, x: 0, y: -50 },
+      enter: { opacity: 1, x: 0, y: 0 },
+      exit: { opacity: 0, x: 0, y: 0 },
+    };
     const handleLocaleChange = async (selectedLocale) => {
       // Persist the user's language preference
       // https://nextjs.org/docs/advanced-features/i18n-routing#leveraging-the-next_locale-cookie
@@ -64,32 +67,39 @@ function LocaleSwitch({ pageContext }) {
     }, [locale, router, pageContext]);
 
     return (
-      <Menu as="div" className="relative">
+      <Menu as="div" className="relative z-20">
         <Menu.Button className="flex flex-row w-12 h-full">
           <LanguageIcon className="w-6 h-6" />
           <ChevronDownIcon className="w-5 h-5" />
         </Menu.Button>
-        <Menu.Items className="absolute right-0 flex flex-col p-2 mt-2 origin-top-right bg-white shadow-lg rounded-2xl w-fit ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {pageContext.localizedPaths &&
-            pageContext.localizedPaths.map(({ locale, href }) => (
-              <Menu.Item key={locale} as={Fragment}>
-                {({ active }) => (
-                  <button
-                    onClick={() => handleLocaleChange(locale)}
-                    className={`${
-                      active
-                        ? 'bg-orange text-white rounded-full'
-                        : 'text-black'
-                    } p-3 w-full`}
-                  >
-                    <Link href={href} locale={locale} role="option" passHref>
-                      <a>{lang[locale]}</a>
-                    </Link>
-                  </button>
-                )}
-              </Menu.Item>
-            ))}
-        </Menu.Items>
+        <Transition
+          enter="transition duration-100 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-75 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
+        >
+          <Menu.Items className="absolute right-0 flex flex-col gap-1 p-2 mt-2 origin-top-right bg-white shadow-lg rounded-2xl w-fit ring-1 ring-black ring-opacity-5 focus:outline-none">
+            {pageContext.localizedPaths &&
+              pageContext.localizedPaths.map(({ locale, href }) => (
+                <Menu.Item key={locale} as={Fragment}>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleLocaleChange(locale)}
+                      className={`${
+                        active ? 'bg-orange text-white ' : 'text-black'
+                      } p-3 w-full rounded-full transition duration-300`}
+                    >
+                      <Link href={href} locale={locale} role="option" passHref>
+                        <a>{lang[locale]}</a>
+                      </Link>
+                    </button>
+                  )}
+                </Menu.Item>
+              ))}
+          </Menu.Items>
+        </Transition>
       </Menu>
     );
   }

@@ -3,8 +3,6 @@ import Head from 'next/head';
 import ErrorPage from 'next/error';
 import { DefaultSeo } from 'next-seo';
 
-import { AnimatePresence } from 'framer-motion';
-
 import { getStrapiMedia } from '../utils/media';
 import '../styles/globals.css';
 import { getGlobalData } from '../utils/api';

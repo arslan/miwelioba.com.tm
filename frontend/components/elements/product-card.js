@@ -4,7 +4,7 @@ function ProductCard({ data }) {
   const { title, description, propertiesTitle, properties } = data;
 
   return (
-    <div className="flex flex-col w-1/2 gap-4 p-12 bg-white rounded-large">
+    <div className="flex flex-col w-full gap-4 p-12 bg-white lg:w-1/2 rounded-large">
       <h2>{title}</h2>
       <ReactMarkdown className="flex flex-col gap-6 my-8">
         {description}

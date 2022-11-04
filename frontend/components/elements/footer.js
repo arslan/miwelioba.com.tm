@@ -11,13 +11,13 @@ function Footer({ footer }) {
     <>
       <div className="p-8 shadow-[0_0_10px_rgba(0,0,0,0.2)]">
         <div className="container flex flex-row justify-center gap-12 text-xs text-white">
-          <p className="self-center w-2/5">{description}</p>
-          <div className="w-1/5">
+          <p className="self-center hidden w-2/5 lg:flex">{description}</p>
+          <div className="hidden w-1/5 lg:block">
             <div className="w-10/12 mx-auto">
               <NextImage media={logo} />
             </div>
           </div>
-          <div className="flex flex-row flex-wrap w-2/5 gap-4">
+          <div className="flex flex-col gap-4 text-center lg:my-auto lg:text-left lg:flex-row lg:flex-wrap lg:w-2/5">
             {columns.map(({ id, title, description }) => (
               <div key={id} className="flex flex-col">
                 <div className="mb-2 font-bold">{title}</div>
@@ -27,8 +27,8 @@ function Footer({ footer }) {
           </div>
         </div>
       </div>
-      <div className="text-black bg-white">
-        <div className="container flex flex-row justify-between py-1 text-sm">
+      <div className="text-white lg:text-black lg:bg-white bg-orange">
+        <div className="container flex flex-col gap-4 py-1 text-xs text-center lg:gap-0 lg:justify-between lg:flex-row">
           <div>
             {copyrightText}{' '}
             {copyrightDate.getFullYear()}

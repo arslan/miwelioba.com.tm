@@ -8,6 +8,11 @@ import ButtonLink from '../elements/button-link';
 
 function ProductGroups({ data }) {
   const { title, subtitle, type, brands, anchor, decor } = data;
+
+  const bgImages = decor?.decorationImages?.data.map((bgImage) => {
+    return { data: { ...bgImage } };
+  });
+
   return (
     <div className="container relative">
       {/* DECORATION IMAGES */}
@@ -17,7 +22,7 @@ function ProductGroups({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
             speed={1}
-            className="absolute w-52 -right-10 -top-32"
+            className="absolute -right-32 w-52 lg:-right-10 -top-32 -z-10"
           />
           {/* LEMON */}
           <AnimatedImage
@@ -29,7 +34,7 @@ function ProductGroups({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[2] } }}
             speed={-1}
-            className="absolute top-0 w-56 -left-0 -z-10"
+            className="absolute w-56 top-24 lg:top-0 -left-32 lg:-left-0 -z-10"
           />
           {/* BLUEBERRY */}
           <AnimatedImage
@@ -41,7 +46,7 @@ function ProductGroups({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[4] } }}
             speed={1}
-            className="absolute z-10 w-48 -left-20 top-32"
+            className="absolute w-48 -z-10 -left-20 top-32"
           />
         </div>
       ) : (
@@ -62,16 +67,34 @@ function ProductGroups({ data }) {
                 spaceBetween={50}
                 slidesPerView={4}
                 className="!overflow-visible h-80 mt-32"
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                }}
               >
                 {products.data.map(
                   ({ id, attributes: { title, media, button } }) => (
                     <SwiperSlide className="h-full" key={id}>
-                      <div className="relative flex flex-col items-center justify-end h-full transition-transform duration-300 bg-white shadow-md select-none group hover:scale-105 drop-shadow-xl rounded-large">
-                        <div className="absolute w-48 duration-500 -top-28 group-hover:scale-110">
+                      <div className="relative flex flex-col items-center justify-end h-full transition-transform duration-300 bg-white shadow-sm lg:shadow-md group lg:hover:scale-105 lg:drop-shadow-xl rounded-large">
+                        <div className="absolute w-48 duration-500 -top-28 lg:group-hover:scale-110">
                           <NextImage media={media} />
                         </div>
                         <span className="font-bold ">{title}</span>
-                        <div className="my-4 transition duration-300 hover:scale-105 hover:drop-shadow-md">
+                        <div className="my-4 transition duration-300 lg:hover:scale-105 lg:hover:drop-shadow-md">
                           <ButtonLink
                             button={button}
                             appearance={button.type}
@@ -87,10 +110,73 @@ function ProductGroups({ data }) {
           ))}
 
         {type === 'grid' && (
-          <div className="mt-12 mb-24">
+          <div className="relative mt-12 mb-24">
+            {/* DECORATION IMAGES */}
+            {bgImages?.length === 8 ? (
+              <div>
+                {/* LIME */}
+                <AnimatedImage
+                  media={bgImages[0]}
+                  speed={0.2}
+                  className="absolute bottom-0 -left-16 w-52 -z-10"
+                />
+                {/* APPLE */}
+                <AnimatedImage
+                  media={bgImages[1]}
+                  speed={0.3}
+                  className="absolute w-48 -top-16 right-20 -z-10"
+                />
+                {/* ORANGE SLICE */}
+                <AnimatedImage
+                  media={bgImages[2]}
+                  speed={-0.6}
+                  className="absolute top-0 w-32 -left-2 -z-10"
+                />
+                {/* BLUEBERRY */}
+                <AnimatedImage
+                  media={bgImages[3]}
+                  speed={0.6}
+                  className="absolute -z-10 top-56 w-36 left-32"
+                />
+                {/* BLUEBERRY #2 */}
+                <AnimatedImage
+                  media={bgImages[3]}
+                  speed={0.2}
+                  className="absolute  -z-10 flip blur-[1.5px] top-96 w-28 left-[37rem]"
+                />
+                {/* CHERRY */}
+                <AnimatedImage
+                  media={bgImages[4]}
+                  speed={0.3}
+                  className="absolute left-0 w-48 -z-10 top-96"
+                />
+                {/* BANANA */}
+                <AnimatedImage
+                  media={bgImages[5]}
+                  speed={0.4}
+                  className="absolute  -z-10 w-48 left-[37rem] top-12"
+                />
+                {/* MINT */}
+                <AnimatedImage
+                  media={bgImages[6]}
+                  speed={0.5}
+                  className="absolute bottom-0 right-0 w-56 -z-20"
+                />
+                {/* ORANGE SLICES */}
+                <AnimatedImage
+                  media={bgImages[7]}
+                  speed={0.7}
+                  className="absolute w-48 -z-10 -right-16 bottom-96"
+                />
+              </div>
+            ) : (
+              console.log(
+                'Only 8 decoration images are supported. No less no more.'
+              )
+            )}
             {brands.data.map(({ attributes: { brandName, products } }) => (
               <div key={brandName}>
-                <h3 className="mb-12 text-3xl font-black text-white">
+                <h3 className="mb-12 text-3xl font-black text-center text-white">
                   {brandName}
                 </h3>
                 <div className="flex flex-row flex-wrap justify-center gap-4">

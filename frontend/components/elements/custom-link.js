@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const CustomLink = ({ link, children }) => {
+const CustomLink = ({ link, children, className }) => {
   const isInternalLink = link.url.startsWith('/');
   const isAnchorLink = link.url.startsWith('/#');
   // For internal links, use the Next.js Link component
@@ -8,7 +8,7 @@ const CustomLink = ({ link, children }) => {
   if (isInternalLink && !isAnchorLink) {
     return (
       <Link href={link.url}>
-        <a>{children}</a>
+        <a className={className}>{children}</a>
       </Link>
     );
   }
@@ -16,18 +16,27 @@ const CustomLink = ({ link, children }) => {
   // Plain <a> tags for external links and anchors
 
   if (isAnchorLink) {
-    return <a href={link.url}>{children}</a>;
+    return (
+      <a href={link.url} className={className}>
+        {children}
+      </a>
+    );
   }
   if (link.newTab) {
     return (
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
+      <a
+        href={link.url}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <a href={link.url} target="_self">
+    <a href={link.url} className={className} target="_self">
       {children}
     </a>
   );

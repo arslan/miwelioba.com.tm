@@ -16,7 +16,7 @@ function Hero({ data }) {
   } = data;
 
   return (
-    <main className="container flex flex-row !pr-0 text-white">
+    <main className="container flex lg:flex-row flex-col lg:!pr-0 text-white">
       {/* DECORATION IMAGES */}
       {decor.decorationImages.data?.length === 4 ? (
         <div>
@@ -24,7 +24,7 @@ function Hero({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
             speed={-5}
-            className="absolute left-0 w-48 bottom-20"
+            className="absolute left-0 w-48 bottom-12 lg:bottom-20"
           />
           {/* LEMON */}
           <AnimatedImage
@@ -47,7 +47,7 @@ function Hero({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[3] } }}
             speed={2}
-            className="absolute w-48 bottom-32 right-20 -z-10"
+            className="absolute bottom-0 w-48 lg:bottom-32 right-20 -z-10"
           />
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[3] } }}
@@ -63,8 +63,8 @@ function Hero({ data }) {
         <span className="mb-2 text-lg font-bold tracking-widest uppercase text-yellow">
           {label}
         </span>
-        <h1 className="my-2 text-5xl font-extrabold">{title}</h1>
-        <span className="py-4 text-xl leading-8">{description}</span>
+        <h1 className="my-2 text-4xl font-extrabold lg:text-5xl">{title}</h1>
+        <span className="py-4 text-lg leading-8 lg:text-xl">{description}</span>
         <div className="text-md">
           <Link href="#">
             <a className="arrow-link">
@@ -79,7 +79,7 @@ function Hero({ data }) {
           ))}
         </div>
       </div>
-      <div className="w-[70rem] mt-12 z-10">
+      <div className="lg:w-[70rem] lg:mt-12 z-10">
         {/* <NextImage media={media} /> */}
         <HeroImage media={media}/>
       </div>
