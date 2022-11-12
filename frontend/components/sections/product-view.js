@@ -102,7 +102,7 @@ function ProductView({ data }) {
       {/* IMAGES CONTAINER */}
       <div className="flex flex-col w-full lg:w-1/2">
         {/* MAIN IMAGE */}
-        <div className="self-center w-2/3 lg:w-2/3">
+        <div className="self-center w-[40%] py-12 lg:w-1/4">
           <NextImage media={media} />
         </div>
         {/* THUMBNAILS */}

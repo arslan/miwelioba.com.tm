@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import ButtonLink from '../elements/button-link';
 import NextImage from '../elements/image';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
 import AnimatedImage from '../elements/animated-image';
+import ButtonHash from '../elements/button-hash';
 
 function CallToAction({ data }) {
   const { ctaFeatures, ctaButton, decor } = data;
@@ -55,7 +55,7 @@ function CallToAction({ data }) {
                 <ArrowLongRightIcon className="inline-block w-6 mb-1 ml-1" />
               </a>
             </Link>
-            <ButtonLink
+            <ButtonHash
               button={ctaButton}
               appearance={ctaButton.type}
               compact={false}

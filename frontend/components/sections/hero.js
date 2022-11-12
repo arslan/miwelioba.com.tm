@@ -16,7 +16,7 @@ function Hero({ data }) {
   } = data;
 
   return (
-    <main className="container flex lg:flex-row flex-col lg:!pr-0 text-white">
+    <main className="container relative flex lg:flex-row flex-col lg:!pr-0 text-white">
       {/* DECORATION IMAGES */}
       {decor.decorationImages.data?.length === 4 ? (
         <div>
@@ -79,7 +79,7 @@ function Hero({ data }) {
           ))}
         </div>
       </div>
-      <div className="lg:w-[70rem] lg:mt-12 z-10">
+      <div className="lg:w-[70rem] lg:mt-12">
         {/* <NextImage media={media} /> */}
         <HeroImage media={media}/>
       </div>

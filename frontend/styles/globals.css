@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-orange;
+  @apply bg-orange relative;
 }
 
 h2 {
@@ -31,6 +31,7 @@ textarea {
   @apply text-white bg-orange placeholder:text-white/30 border-b-[1px] font-light focus:outline-none invalid:text-red-900 invalid:border-red-800 transition duration-300;
 }
 
+
 label {
   @apply grow;
 }
@@ -41,4 +42,9 @@ html {
 
 .flip img {
   @apply -scale-x-100;
+}
+
+* { 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
 }

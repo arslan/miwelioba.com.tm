@@ -90,7 +90,7 @@ function ProductGroups({ data }) {
                   ({ id, attributes: { title, media, button } }) => (
                     <SwiperSlide className="h-full" key={id}>
                       <div className="relative flex flex-col items-center justify-end h-full transition-transform duration-300 bg-white shadow-sm lg:shadow-md group lg:hover:scale-105 lg:drop-shadow-xl rounded-large">
-                        <div className="absolute w-48 duration-500 -top-28 lg:group-hover:scale-110">
+                        <div className="absolute w-[6.5rem] duration-500 -top-28 lg:group-hover:scale-110">
                           <NextImage media={media} />
                         </div>
                         <span className="font-bold ">{title}</span>
@@ -183,10 +183,10 @@ function ProductGroups({ data }) {
                   {products.data.map(
                     ({ id, attributes: { title, media, button } }) => (
                       <div
-                        className="relative flex flex-col items-center justify-end mt-20 transition-transform duration-300 bg-white shadow-md select-none w-60 h-80 group hover:scale-105 drop-shadow-xl rounded-large"
+                        className="relative flex flex-col items-center justify-end mt-32 transition-transform duration-300 bg-white shadow-md select-none w-60 h-80 group hover:scale-105 drop-shadow-xl rounded-large"
                         key={id}
                       >
-                        <div className="absolute w-48 duration-500 -top-28 group-hover:scale-110">
+                        <div className="absolute w-[6.5rem] duration-500 -top-28 group-hover:scale-110">
                           <NextImage media={media} />
                         </div>
                         <span className="font-bold ">{title}</span>
