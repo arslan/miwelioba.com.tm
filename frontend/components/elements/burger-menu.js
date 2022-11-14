@@ -27,7 +27,7 @@ export default function BurgerMenu({ navbar }) {
               transition={{ duration: 0.4 }}
             >
               <Dialog.Panel>
-                <div className="fixed top-0 right-0 flex flex-col justify-center w-screen h-screen gap-12 font-bold z-[100] bg-orange">
+                <div className="fixed top-0 right-0 z-50 flex flex-col justify-center w-screen h-screen gap-12 font-bold bg-orange">
                   <button
                     className="absolute w-8 h-8 text-white outline-none top-5 right-7 ring-0"
                     onClick={() => setIsOpen(false)}

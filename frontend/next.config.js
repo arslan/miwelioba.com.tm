@@ -7,7 +7,8 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   images: {
-    domains: [process.env.IMAGE_DOMAIN]
+    domains: [process.env.IMAGE_DOMAIN],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 

@@ -30,7 +30,7 @@ function Hero({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[1] } }}
             speed={2}
-            className="absolute right-20 w-32 blur-[1.5px] invisible lg:visible"
+            className="absolute right-20 w-32 blur-[1.5px] invisible lg:visible -z-10"
           />
           {/* BLUEBERRY */}
           <AnimatedImage
@@ -49,11 +49,13 @@ function Hero({ data }) {
             speed={2}
             className="absolute bottom-0 w-48 lg:bottom-32 right-20 -z-10"
           />
-          <AnimatedImage
-            media={{ data: { ...decor.decorationImages?.data[3] } }}
-            speed={-2}
-            className="absolute w-48 bottom-20 right-1/4 blur-[1.5px] flip -z-10"
-          />
+          <div className="-z-50">
+            <AnimatedImage
+              media={{ data: { ...decor.decorationImages?.data[3] } }}
+              speed={-2}
+              className="absolute w-48 bottom-20 right-1/4 blur-[1.5px] flip -z-50"
+            />
+          </div>
         </div>
       ) : (
         console.log('Only 4 decoration images are supported. No less no more.')
@@ -79,9 +81,9 @@ function Hero({ data }) {
           ))}
         </div>
       </div>
-      <div className="lg:w-[70rem] lg:mt-12">
+      <div className="lg:w-[70rem] lg:mt-12 -z-50">
         {/* <NextImage media={media} /> */}
-        <HeroImage media={media}/>
+        <HeroImage media={media} />
       </div>
     </main>
   );

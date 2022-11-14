@@ -48,7 +48,7 @@ function FeatureRow({ data }) {
       ) : (
         console.log('Only 5 decoration images are supported. No less no more.')
       )}
-      <div className="w-full shadow-md lg:w-3/4 drop-shadow-xl rounded-3xl overflow-clip">
+      <div className="w-full shadow-md drop-shadow-xl rounded-3xl overflow-clip">
         <NextImage media={rowFeatures.media} />
       </div>
       <div className="flex flex-col justify-between w-full gap-5 mt-12 lg:mt-0 lg:px-12">

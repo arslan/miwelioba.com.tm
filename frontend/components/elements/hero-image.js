@@ -2,13 +2,13 @@ import AnimatedImage from './animated-image';
 
 function HeroImage({ media }) {
   return (
-    <div className="w-full h-96 lg:h-[32rem] scale-[0.60] lg:scale-100 pl-24 lg:pl-0">
-      <div className="relative w-5 h-full mx-auto">
+    <div className="w-full h-96 lg:h-[32rem] scale-[0.60] lg:scale-100 pl-24 lg:pl-0 -z-50">
+      <div className="relative w-5 h-full mx-auto -z-50">
         {/* LEMON 1 */}
         <AnimatedImage
           media={{ data: media.data[0] }}
           speed={1}
-          className="absolute z-30 w-24 h-32 right-2 top-20"
+          className="absolute z-20 w-24 h-32 right-2 top-20"
         />
         {/* BERRIES BOTTOM*/}
         <AnimatedImage
@@ -56,7 +56,7 @@ function HeroImage({ media }) {
         <AnimatedImage
           media={{ data: media.data[7] }}
           speed={0.4}
-          className="absolute h-32 -top-8 w-44 left-24"
+          className="absolute h-32 -top-8 w-44 left-24 -z-30"
         />
       </div>
     </div>
