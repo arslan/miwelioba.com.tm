@@ -28,7 +28,8 @@ function NextImage({ media, ...props }) {
       src={url}
       alt={alternativeText || ''}
       priority
-      blurDataURL={formats?.thumbnail || formats?.small}
+      loading="eager"
+      blurDataURL={formats?.thumbnail || formats?.small || url}
       placeholder="blur"
     />
   );
