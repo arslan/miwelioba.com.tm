@@ -4,11 +4,10 @@ import { mediaPropTypes } from 'utils/types';
 import { getStrapiMedia } from 'utils/media';
 
 function NextImage({ media, ...props }) {
-  const { url, alternativeText, width, height } = media.data.attributes;
+  const { url, alternativeText, width, height, formats } = media.data.attributes;
 
   const loader = ({ src, width, quality }) => {
-    console.log(src, width, quality)
-    return getStrapiMedia(`${src}?w=${width}&q=${quality || 40}&format=webp`);
+    return getStrapiMedia(`${src}?w=${width}&q=${quality || 30}&format=webp`);
   };
 
   // The image has a fixed width and height
@@ -29,6 +28,8 @@ function NextImage({ media, ...props }) {
       src={url}
       alt={alternativeText || ''}
       priority
+      blurDataURL={formats?.thumbnail || formats?.small}
+      placeholder="blur"
     />
   );
 }
