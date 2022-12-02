@@ -14,18 +14,13 @@ function LocaleSwitch({ pageContext }) {
     const isMounted = useRef(false);
     const router = useRouter();
     const [locale, setLocale] = useState();
-    const [showing, setShowing] = useState(false);
 
     const lang = {
       en: 'English',
       ru: 'Русский',
       tk: 'Türkmençe',
     };
-    const variants = {
-      hidden: { opacity: 0, x: 0, y: -50 },
-      enter: { opacity: 1, x: 0, y: 0 },
-      exit: { opacity: 0, x: 0, y: 0 },
-    };
+
     const handleLocaleChange = async (selectedLocale) => {
       // Persist the user's language preference
       // https://nextjs.org/docs/advanced-features/i18n-routing#leveraging-the-next_locale-cookie
@@ -89,7 +84,7 @@ function LocaleSwitch({ pageContext }) {
                       onClick={() => handleLocaleChange(locale)}
                       className={`${
                         active ? 'bg-orange text-white ' : 'text-black'
-                      } p-3 w-full rounded-full transition duration-300`}
+                      } py-3 px-6 w-full rounded-full transition duration-300`}
                     >
                       <Link href={href} locale={locale} role="option" passHref>
                         <a>{lang[locale]}</a>
