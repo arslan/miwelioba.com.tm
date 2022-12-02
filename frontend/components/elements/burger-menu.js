@@ -42,7 +42,7 @@ export default function BurgerMenu({ navbar }) {
                       >
                         <button
                           onClick={() => setCustomIsOpen(!customOpen)}
-                          className="font-black uppercase"
+                          className="mx-auto text-2xl text-white uppercase"
                         >
                           {navLink.text}
                         </button>
