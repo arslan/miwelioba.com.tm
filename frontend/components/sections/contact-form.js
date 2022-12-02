@@ -72,7 +72,7 @@ function ContactForm({ data }) {
 
   return (
     <div
-      className="container relative pt-12 pb-24 text-white lg:px-80"
+      className="container relative pt-12 pb-24 text-white xl:px-80"
       id={anchor}
     >
       {/* DECORATION IMAGES */}
@@ -82,7 +82,7 @@ function ContactForm({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
             speed={1}
-            className="absolute z-10 -left-20 w-52 lg:w-64 lg:left-20 -top-32"
+            className="absolute z-10 -left-20 w-52 xl:w-64 xl:left-20 -top-32"
           />
           {/* GRAPEFRUIT */}
           <AnimatedImage
@@ -94,26 +94,26 @@ function ContactForm({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[2] } }}
             speed={-1}
-            className="absolute z-10 w-56 lg:right-20 -right-12 -bottom-52 lg:-bottom-64"
+            className="absolute z-10 w-56 xl:right-20 -right-12 -bottom-52 xl:-bottom-64"
           />
           {/* ORANGES */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[3] } }}
             speed={1}
-            className="absolute z-10 w-32 -right-8 -top-32 lg:right-0 lg:w-64 lg:-top-0"
+            className="absolute z-10 w-32 -right-8 -top-32 xl:right-0 xl:w-64 xl:-top-0"
           />
         </div>
       ) : (
         console.log('Only 4 decoration images are supported. No less no more.')
       )}
       <form
-        className="flex flex-col p-12 shadow-2xl lg:gap-6 bg-orange drop-shadow-xl rounded-large"
+        className="flex flex-col p-12 shadow-2xl xl:gap-6 bg-orange drop-shadow-xl rounded-large"
         onSubmit={handleSubmit(onSubmit, onError)}
       >
         <h2 className="mb-4">{title}</h2>
 
         {/* START: FIRST ROW */}
-        <div className="flex flex-col lg:gap-12 lg:flex-row">
+        <div className="flex flex-col xl:gap-12 xl:flex-row">
           {/* First Name */}
           <label className="flex flex-col">
             {firstNameTitle}
@@ -124,7 +124,7 @@ function ContactForm({ data }) {
               placeholder={firstNamePlaceholder}
               {...register('firstName', { required: true, minLength: 2 })}
             />
-            <p className="text-sm text-red-800 transition duration-300 opacity-0 lg:mt-1 peer-invalid:opacity-100">
+            <p className="text-sm text-red-800 transition duration-300 opacity-0 xl:mt-1 peer-invalid:opacity-100">
               Please provide a valid
               <span className="lowercase"> {firstNameTitle}.</span>
             </p>
@@ -139,7 +139,7 @@ function ContactForm({ data }) {
               placeholder={lastNamePlaceholder}
               {...register('lastName', { required: true, minLength: 2 })}
             />
-            <p className="text-sm text-red-800 transition duration-300 opacity-0 lg:mt-1 peer-invalid:opacity-100">
+            <p className="text-sm text-red-800 transition duration-300 opacity-0 xl:mt-1 peer-invalid:opacity-100">
               Please provide a valid
               <span className="lowercase"> {lastNameTitle}.</span>
             </p>
@@ -148,7 +148,7 @@ function ContactForm({ data }) {
         {/* END: FIRST ROW */}
 
         {/* START: SECOND ROW */}
-        <div className="flex flex-col lg:flex-row lg:gap-12">
+        <div className="flex flex-col xl:flex-row xl:gap-12">
           {/* Address */}
           <label className="flex flex-col grow">
             {addressTitle}
@@ -159,7 +159,7 @@ function ContactForm({ data }) {
               placeholder={addressPlaceholder}
               {...register('address', { required: true, minLength: 4 })}
             />
-            <p className="text-sm text-red-800 transition duration-300 opacity-0 lg:mt-1 peer-invalid:opacity-100">
+            <p className="text-sm text-red-800 transition duration-300 opacity-0 xl:mt-1 peer-invalid:opacity-100">
               Please provide a valid
               <span className="lowercase"> {addressTitle}.</span>
             </p>
@@ -179,7 +179,7 @@ function ContactForm({ data }) {
                 minLength: 6,
               })}
             />
-            <p className="text-sm text-red-800 transition duration-300 opacity-0 lg:mt-1 peer-invalid:opacity-100">
+            <p className="text-sm text-red-800 transition duration-300 opacity-0 xl:mt-1 peer-invalid:opacity-100">
               Please provide a valid
               <span className="lowercase"> {phoneNumberTitle}.</span>
             </p>
