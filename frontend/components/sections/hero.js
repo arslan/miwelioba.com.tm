@@ -16,10 +16,10 @@ function Hero({ data }) {
   } = data;
 
   return (
-    <main className="container relative flex lg:flex-row flex-col lg:!pr-0 text-white">
+    <main className="container relative flex lg:flex-row flex-col lg:!pr-0 text-white -z-50">
       {/* DECORATION IMAGES */}
       {decor.decorationImages.data?.length === 4 ? (
-        <div>
+        <div className="pointer-events-none">
           {/* MINT */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
@@ -60,6 +60,7 @@ function Hero({ data }) {
       ) : (
         console.log('Only 4 decoration images are supported. No less no more.')
       )}
+      
       {/* MAIN PART */}
       <div className="flex flex-col justify-center lg:w-1/2">
         <span className="mb-2 text-lg font-bold tracking-widest uppercase text-yellow">
