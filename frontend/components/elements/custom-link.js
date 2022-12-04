@@ -17,9 +17,9 @@ const CustomLink = ({ link, children, className }) => {
 
   if (isAnchorLink) {
     return (
-      <Link href={link.url} className={className} scroll={false}>
+      <a href={link.url} className={className}>
         {children}
-      </Link>
+      </a>
     );
   }
   if (link.newTab) {
