@@ -45,7 +45,7 @@ const DynamicPage = ({ global, metadata, pageContext, sections }) => {
           variants={variants} // Pass the variant object into Framer Motion
           initial="hidden" // Set the initial state to variants.hidden
           animate="enter" // Animated state to variants.enter
-          exit="exit" // Exit state (used later) to variants.exit
+          // exit="exit" Exit state (used later) to variants.exit
           key={router.asPath}
           transition={{ type: 'linear' }}
           onAnimationComplete={() => {
