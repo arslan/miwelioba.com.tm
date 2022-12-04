@@ -2,11 +2,12 @@ import App from 'next/app';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
 import { DefaultSeo } from 'next-seo';
+import { InfinitySpin } from 'react-loader-spinner';
 
 import { getStrapiMedia } from '../utils/media';
 import '../styles/globals.css';
 import { getGlobalData } from '../utils/api';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
@@ -17,23 +18,36 @@ function MyApp({ Component, pageProps }) {
   }
   const { metadata, favicon, metaTitleSuffix } = global.attributes;
   const router = useRouter();
-  // const [loaded, setLoaded] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(undefined);
 
-  // useEffect(() => {
-  //   document.onreadystatechange = () => {
-  //     if (document.readyState === 'complete') {
-  //       setLoaded(true);
-  //     }
-  //   };
-  //   router.events.on('routeChangeStart', () => {
-  //     setLoaded(false);
-  //   });
-  //   router.events.on('routeChangeComplete', () => {
-  //     if (document.readyState === 'complete') {
-  //       setLoaded(true);
-  //     }
-  //   });
-  // }, [router.query.slug]);
+  useEffect(() => {
+    const markLoading = () => {
+      setHasLoaded(false);
+      console.log('Marked as loading!');
+    };
+    const markComplete = () => {
+      setHasLoaded(true);
+      console.log('Marked as complete!');
+    };
+
+    if (hasLoaded === undefined && document.readyState === 'complete') {
+      markComplete();
+    } else {
+      window.addEventListener('load', markComplete);
+    }
+
+    router.events.on('routeChangeStart', markLoading);
+    router.events.on('routeChangeComplete', markComplete);
+    router.events.on('routeChangeError', markComplete);
+
+    return () => {
+      window.removeEventListener('load', markComplete);
+
+      router.events.off('routeChangeStart', markLoading);
+      router.events.off('routeChangeComplete', markComplete);
+      router.events.off('routeChangeError', markComplete);
+    };
+  });
 
   return (
     <>
@@ -47,6 +61,23 @@ function MyApp({ Component, pageProps }) {
         title={metadata.metaTitle}
         description={metadata.metaDescription}
       />
+      {!hasLoaded && (
+        <div
+          style={{
+            position: 'fixed',
+            height: '100%',
+            width: '100%',
+            padding: '1.5rem',
+            textAlign: 'center',
+            zIndex: 99,
+          }}
+          className="relative bg-orange"
+        >
+          <div className="flex flex-col items-center justify-center w-full h-full ">
+            <InfinitySpin width="200" color="#ffffff" />
+          </div>
+        </div>
+      )}
 
       <Component {...pageProps} />
     </>
