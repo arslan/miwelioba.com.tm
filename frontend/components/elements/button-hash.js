@@ -32,13 +32,11 @@ function ButtonContent({ button, appearance, compact }) {
 
 function ButtonHash({ button, appearance, compact = false }) {
   return (
-      <a href={button.url}>
         <ButtonContent
           button={button}
           appearance={appearance}
           compact={compact}
         />
-      </a>
   );
 }
 

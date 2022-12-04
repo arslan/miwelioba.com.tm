@@ -55,11 +55,15 @@ function CallToAction({ data }) {
                 <ArrowLongRightIcon className="inline-block w-6 mb-1 ml-1" />
               </a>
             </Link>
-            <ButtonHash
-              button={ctaButton}
-              appearance={ctaButton.type}
-              compact={false}
-            />
+            <Link href={ctaButton.url} scroll={false}>
+              <a>
+                <ButtonHash
+                  button={ctaButton}
+                  appearance={ctaButton.type}
+                  compact={false}
+                />
+              </a>
+            </Link>
           </div>
           <div className="block lg:absolute lg:w-[26rem] -right-10 -top-24">
             <NextImage media={media} />

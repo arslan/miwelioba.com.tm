@@ -75,7 +75,10 @@ function LocaleSwitch({ pageContext }) {
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Menu.Items as="div" className="absolute right-0 flex flex-col gap-1 p-2 mt-2 origin-top-right bg-white shadow-lg outline-none outline-0 rounded-2xl w-fit ring-1 ring-black ring-opacity-5">
+          <Menu.Items
+            as="div"
+            className="absolute right-0 flex flex-col gap-1 p-2 mt-2 origin-top-right bg-white shadow-lg outline-none outline-0 rounded-2xl w-fit ring-1 ring-black ring-opacity-5"
+          >
             {pageContext.localizedPaths &&
               pageContext.localizedPaths.map(({ locale, href }) => (
                 <Menu.Item key={locale} as={Fragment}>

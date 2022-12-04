@@ -16,10 +16,10 @@ function Hero({ data }) {
   } = data;
 
   return (
-    <main className="container relative flex lg:flex-row flex-col lg:!pr-0 text-white -z-50">
+    <main className="container relative flex lg:flex-row flex-col lg:!pr-0 text-white">
       {/* DECORATION IMAGES */}
       {decor.decorationImages.data?.length === 4 ? (
-        <div className="pointer-events-none">
+        <div>
           {/* MINT */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[0] } }}
@@ -30,39 +30,37 @@ function Hero({ data }) {
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[1] } }}
             speed={2}
-            className="absolute right-20 w-32 blur-[1.5px] invisible lg:visible -z-10"
+            className="absolute right-20 w-32 blur-[1.5px] invisible lg:visible"
           />
           {/* BLUEBERRY */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[2] } }}
             speed={4}
-            className="absolute w-28 left-20 top-20 blur-[1px] -z-10"
+            className="absolute w-28 left-20 top-20 blur-[1px]"
           />
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[2] } }}
             speed={1}
-            className="absolute w-20 bottom-52 left-1/3 -z-10"
+            className="absolute w-20 bottom-52 left-1/3"
           />
           {/* CHERRY */}
           <AnimatedImage
             media={{ data: { ...decor.decorationImages?.data[3] } }}
             speed={2}
-            className="absolute bottom-0 w-48 lg:bottom-32 right-20 -z-10"
+            className="absolute bottom-0 w-48 lg:bottom-32 right-20"
           />
-          <div className="-z-50">
-            <AnimatedImage
-              media={{ data: { ...decor.decorationImages?.data[3] } }}
-              speed={-2}
-              className="absolute w-48 bottom-20 right-1/4 blur-[1.5px] flip -z-50"
-            />
-          </div>
+          <AnimatedImage
+            media={{ data: { ...decor.decorationImages?.data[3] } }}
+            speed={-2}
+            className="absolute w-48 bottom-20 right-1/4 blur-[1.5px] flip"
+          />
         </div>
       ) : (
         console.log('Only 4 decoration images are supported. No less no more.')
       )}
-      
+
       {/* MAIN PART */}
-      <div className="flex flex-col justify-center lg:w-1/2">
+      <div className="z-10 flex flex-col justify-center lg:w-1/2">
         <span className="mb-2 text-lg font-bold tracking-widest uppercase text-yellow">
           {label}
         </span>
@@ -78,11 +76,15 @@ function Hero({ data }) {
         </div>
         <div className="mt-8">
           {buttons.map((button, i) => (
-            <ButtonHash key={i} button={button} appearance={button.type} />
+            <Link href={button.url} scroll={false}>
+              <a>
+                <ButtonHash key={i} button={button} appearance={button.type} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>
-      <div className="lg:w-[70rem] lg:mt-12 -z-50">
+      <div className="lg:w-[70rem] lg:mt-12">
         {/* <NextImage media={media} /> */}
         <HeroImage media={media} />
       </div>

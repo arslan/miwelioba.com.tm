@@ -5,7 +5,7 @@ import BurgerMenu from './burger-menu';
 
 function Navbar({ navbar, pageContext }) {
   return (
-    <nav className="py-4 lg:py-6">
+    <nav className="z-10 py-4 lg:py-6">
       {/* navbar */}
       <div className="container flex flex-row items-center justify-between font-sans font-medium text-white">
         {/* left */}
