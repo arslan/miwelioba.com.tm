@@ -18,7 +18,12 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "media": {
       "type": "media",
@@ -31,17 +36,32 @@
     },
     "description": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "propertiesTitle": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "properties": {
       "displayName": "Product property",
       "type": "component",
       "repeatable": true,
-      "component": "elements.product-property"
+      "component": "elements.product-property",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "thumbnailPicture": {
       "type": "media",
@@ -70,17 +90,6 @@
         }
       },
       "component": "link.button-link"
-    },
-    "type": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "elements.page-type",
-      "required": true
     },
     "metadata": {
       "type": "component",
