@@ -7,7 +7,7 @@ function NextImage({ media, ...props }) {
   const { url, alternativeText, width, height, formats } = media.data.attributes;
 
   const loader = ({ src, width, quality }) => {
-    return getStrapiMedia(`${src}?w=${width}&q=${quality || 30}&format=webp`);
+    return getStrapiMedia(`${src}?w=${width}&q=${quality || 10}&format=webp`);
   };
 
   // The image has a fixed width and height
