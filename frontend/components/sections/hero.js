@@ -76,7 +76,7 @@ function Hero({ data }) {
         </div>
         <div className="mt-8">
           {buttons.map((button, i) => (
-            <Link href={button.url} scroll={false}>
+            <Link href={button.url} scroll={false} key={i}>
               <a>
                 <ButtonHash key={i} button={button} appearance={button.type} />
               </a>
