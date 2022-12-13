@@ -7,7 +7,9 @@
 module.exports = {
   send: async (ctx, next) => {
     const { email, phone, firstName, lastName, message } = ctx.request.body;
-    strapi.log.debug(`Trying to send an email from ${email} to ${process.env.EMAIL_SMTP_USER}`);
+    strapi.log.debug(
+      `Trying to send an email from ${email} to ${process.env.EMAIL_SMTP_USER}`
+    );
 
     try {
       const emailOptions = {
@@ -18,8 +20,6 @@ module.exports = {
         html: `<div>${message} ${phone}</div><p>Sent from:
           ${email}</p>`,
       };
-      strapi.log.debug(`Email Options: ${emailOptions}`);
-
       // sending emails through the nodemailer provider.. does not work
       await strapi.plugins["email"].services.email.send(emailOptions);
 
