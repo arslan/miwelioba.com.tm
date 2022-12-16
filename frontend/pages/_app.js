@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
     <>
       {/* Favicon */}
       <Head>
-        <link rel="icon" href={getStrapiMedia(favicon.data.attributes.url)} />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       {/* Global site metadata */}
       <DefaultSeo

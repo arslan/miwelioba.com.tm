@@ -417,9 +417,6 @@ export async function getGlobalData(locale) {
                       data {
                           id
                           attributes {
-                              favicon {
-                                  ...FileParts
-                              }
                               metadata {
                                   id
                                   metaTitle
