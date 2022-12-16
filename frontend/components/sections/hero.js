@@ -85,7 +85,6 @@ function Hero({ data }) {
         </div>
       </div>
       <div className="lg:w-[70rem] lg:mt-12">
-        {/* <NextImage media={media} /> */}
         <HeroImage media={media} />
       </div>
     </main>

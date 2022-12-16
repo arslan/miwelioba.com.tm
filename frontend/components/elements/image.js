@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { mediaPropTypes } from 'utils/types';
 import { getStrapiMedia } from 'utils/media';
 
-function NextImage({ media, ...props }) {
+function NextImage({ media, sz, ...props }) {
   const { url, alternativeText, width, height, formats } = media.data.attributes;
 
   const loader = ({ src, width, quality }) => {
-    return getStrapiMedia(`${src}?w=${width}&q=${quality || 10}&format=webp`);
+    return getStrapiMedia(`${src}`);
   };
+
+  // ?w=${width}&q=${quality || 10}&format=webp
 
   // The image has a fixed width and height
   if (props.width & props.height) {
@@ -25,12 +27,10 @@ function NextImage({ media, ...props }) {
       width={width || '100%'}
       height={height || '100%'}
       objectFit="contain"
-      src={url}
+      src={formats?.small?.url || formats?.medium?.url || url}
       alt={alternativeText || ''}
       priority
       loading="eager"
-      blurDataURL={formats?.thumbnail || formats?.small || url}
-      placeholder="blur"
     />
   );
 }
