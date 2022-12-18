@@ -1,14 +1,12 @@
 import App from 'next/app';
-import Head from 'next/head';
 import ErrorPage from 'next/error';
 import { DefaultSeo } from 'next-seo';
 import { InfinitySpin } from 'react-loader-spinner';
-
-import { getStrapiMedia } from '../utils/media';
 import '../styles/globals.css';
 import { getGlobalData } from '../utils/api';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   // Get the data we need on all pages
@@ -51,9 +49,25 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* Favicon */}
       <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       {/* Global site metadata */}
       <DefaultSeo
