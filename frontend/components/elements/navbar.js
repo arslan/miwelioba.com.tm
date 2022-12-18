@@ -2,6 +2,7 @@ import NextImage from './image';
 import LocaleSwitch from './locale-switch';
 import CustomLink from './custom-link';
 import BurgerMenu from './burger-menu';
+import Link from 'next/link';
 
 function Navbar({ navbar, pageContext }) {
   return (
@@ -10,7 +11,11 @@ function Navbar({ navbar, pageContext }) {
       <div className="container flex flex-row items-center justify-between font-sans font-medium text-white">
         {/* left */}
         <div className="w-12">
-          <NextImage media={navbar.logo} />
+          <Link href="/" passHref>
+            <a>
+              <NextImage media={navbar.logo} />
+            </a>
+          </Link>
         </div>
         <ul className="flex-row items-baseline hidden gap-16 list-none lg:flex">
           {navbar.links.map((navLink) => (
