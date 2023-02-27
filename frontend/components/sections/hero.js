@@ -60,7 +60,7 @@ function Hero({ data }) {
       )}
 
       {/* MAIN PART */}
-      <div className="z-10 flex flex-col justify-center lg:w-1/2">
+      <div className="z-0 flex flex-col justify-center lg:w-1/2">
         <span className="mb-2 text-lg font-bold tracking-widest uppercase text-yellow">
           {label}
         </span>
