@@ -7,6 +7,6 @@ module.exports = ({ env }) => ({
   },
   recaptchaSecret: env(
     "RECAPTCHA_SECRET_KEY",
-    "6Lf1g9oiAAAAAD2ypcCEC3zffjf9xKaxiZeywsc1"
+    "TEST"
   ),
 });
